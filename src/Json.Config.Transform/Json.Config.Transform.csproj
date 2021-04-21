@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <AssemblyName>json-config-transform</AssemblyName>
+    <ToolCommandName>json-config-transform</ToolCommandName>
+    <TargetFramework>net5.0</TargetFramework>
+    <Description>Provides commands for applying JSON configuration transformation to JSON files.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="5.0.5" />
+    <PackageReference Include="Figgle" Version="0.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+</Project>
