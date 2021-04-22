@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.101'
+      - name: Install dependencies
+        run: dotnet restore src/Json.Config.Transform.sln
+      - name: Build
+        run: dotnet build src/Json.Config.Transform.sln --configuration Release --no-restore
+      - name: Publish to Nuget
+        uses: brandedoutcast/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: src/Json.Config.Transform/Json.Config.Transform.csproj
+          VERSION_FILE_PATH: src/Directory.Build.props
+          VERSION_REGEX: '^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$'
+          TAG_FORMAT: '*'
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
