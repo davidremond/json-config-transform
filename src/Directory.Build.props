@@ -1,0 +1,18 @@
+<Project>
+
+  <PropertyGroup>
+    <PackageVersion>1.0.0</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Product>$(SolutionName)</Product>
+    <Company>json-config-transform</Company>
+    <Copyright>Copyright © $([System.DateTime]::Now.ToString('yyyy')), json-config-transform</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>
