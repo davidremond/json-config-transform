@@ -1,13 +1,13 @@
-﻿using McMaster.Extensions.CommandLineUtils;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.JsonPatch.Operations;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.JsonPatch.Operations;
+using Newtonsoft.Json;
 
 namespace Json.Config.Transform.Services
 {
@@ -99,7 +99,7 @@ namespace Json.Config.Transform.Services
                         var jsonWriter = new JsonTextWriter(stringWriter) { Formatting = Formatting.Indented };
                         jsonWriter.WriteToken(jsonReader);
                         var formatted = stringWriter.ToString();
-                        formatted.Split("\r").ToList().ForEach(_ => _console.WriteLine(_));
+                        formatted.Split("\r\n").ToList().ForEach(_ => _console.WriteLine(_));
                     }
                 }
             }
